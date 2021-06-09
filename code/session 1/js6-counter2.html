@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="counterText">You clicked the button 0 time(s)</p>
+    <button id="down10Button">-10</button>
+    <button id="downButton">-1</button>
+    <button id="upButton">+1</button>
+    <button id="up10Button">+10</button>
+
+    <script>
+        const counterText = document.getElementById("counterText");
+
+        const down10Button = document.getElementById("down10Button");
+        const downButton = document.getElementById("downButton");
+        const upButton = document.getElementById("upButton");
+        const up10Button = document.getElementById("up10Button");
+
+        let counter = 0;
+
+        function updateCounter(value) {
+            counter += value;
+            counterText.innerHTML = `You clicked the button ${counter} times(s)`;
+        }
+
+        down10Button.addEventListener("click", function () {
+            updateCounter(-10);
+        });
+
+        downButton.addEventListener("click", function () {
+            updateCounter(-1);
+        });
+
+        upButton.addEventListener("click", function () {
+            updateCounter(1);
+        });
+
+        up10Button.addEventListener("click", function () {
+            updateCounter(10);
+        });
+    </script>
+</body>
+
+</html>

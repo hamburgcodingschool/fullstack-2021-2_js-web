@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="counterText">You clicked the button 0 time(s)</p>
+    <button id="counterButton">Click me!</button>
+
+    <script>
+        // Create 2 HTML elements a `<p>` and a `<button>`
+        // The paragrash should be initially set to `0`
+        // Everytime the user clicks the button the number goes up by 1
+
+        const counterText = document.getElementById("counterText");
+        const counterButton = document.getElementById("counterButton");
+
+        let counter = 0;
+
+        function countUp() {
+            counter++;
+            counterText.innerHTML = `You clicked the button ${counter} times(s)`;
+        }
+
+        counterButton.addEventListener("click", countUp);
+    </script>
+</body>
+
+</html>

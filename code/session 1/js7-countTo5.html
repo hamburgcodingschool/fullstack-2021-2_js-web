@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="counterText">0</p>
+    <button id="counterButton">Click me!</button>
+
+    <script>
+        const counterText = document.getElementById("counterText");
+        const counterButton = document.getElementById("counterButton");
+
+        let counter = 0;
+
+        counterButton.addEventListener("click", function () {
+            counter++;
+            if (counter > 5) {
+                counter = 0;
+            }
+            counterText.innerHTML = counter;
+        });
+
+        // COUNT FROM 0 TO 5,
+        // AFTER 5 GO BACK TO 0
+    </script>
+</body>
+
+</html>
