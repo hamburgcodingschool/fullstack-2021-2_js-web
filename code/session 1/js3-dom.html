@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="titleHeading">Coding Class</h1>
+    <div>
+        <h2>Javascript Web</h2>
+        <ul>
+            <li>Session 1</li>
+            <li>Session 2</li>
+            <li>Session 3</li>
+        </ul>
+    </div>
+
+
+    <script>
+        // D O M
+        // Document Object Model
+
+        const titleHeading = document.getElementById("titleHeading");
+
+        // document.write(titleHeading);
+        // console.log(titleHeading);
+
+        titleHeading.style.color = "red";
+        titleHeading.style.backgroundColor = "yellow";
+
+        titleHeading.innerHTML = "Some other text...";
+    </script>
+</body>
+
+</html>
