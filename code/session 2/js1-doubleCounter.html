@@ -6,25 +6,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #mainWrapper {
+            width: 400px;
+            margin: 20px auto 0;
+            padding: 10px;
+            background-color: aquamarine;
+            border: solid 5px tomato;
+            border-radius: 10px;
+        }
+
+        #mainWrapper>p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #mainWrapper>.radioElements {
+            text-align: center;
+        }
+
+        #mainWrapper>.buttonElements {
+            text-align: center;
+        }
+
+        #mainWrapper>.buttonElements>button {
+            width: 80px;
+            border: solid 2px peachpuff;
+            background-color: papayawhip;
+            border-radius: 5px;
+        }
+
+        #mainWrapper>.buttonElements>button:hover {
+            opacity: 0.85;
+        }
+
+        #mainWrapper>.buttonElements>button:active {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
-    <p id="counter1Text">Counter 1: 0</p>
-    <p id="counter2Text">Counter 2: 0</p>
+    <div id="mainWrapper">
+        <p id="counter1Text">Counter 1: 0</p>
+        <p id="counter2Text">Counter 2: 0</p>
 
-    <label>
-        <input type="radio" name="radioGroup" id="radioCounter1" checked>Counter 1
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="radioGroup" id="radioCounter2">Counter 2
-    </label>
+        <div class="radioElements">
+            <label>
+                <input type="radio" name="radioGroup" id="radioCounter1" checked>Counter 1
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="radioGroup" id="radioCounter2">Counter 2
+            </label>
+        </div>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    <button id="downButton">Down</button>
-    <button id="upButton">UP</button>
+        <div class="buttonElements">
+            <button id="downButton">Down</button>
+            <button id="upButton">UP</button>
+        </div>
+
+        <script>
+            const upButton = document.getElementById("upButton");
+            const downButton = document.getElementById("downButton");
+
+            const radioCounter1 = document.getElementById("radioCounter1");
+            const radioCounter2 = document.getElementById("radioCounter2");
+
+            const counter1Text = document.getElementById("counter1Text");
+            const counter2Text = document.getElementById("counter2Text");
+
+            let counter1 = 0;
+            let counter2 = 0;
+
+            upButton.addEventListener("click", function () {
+                if (radioCounter1.checked) {
+                    counter1++;
+                    counter1Text.innerHTML = `Counter 1: ${counter1}`;
+                } else {
+                    counter2++;
+                    counter2Text.innerHTML = `Counter 2: ${counter2}`;
+                }
+            });
+
+            downButton.addEventListener("click", function () {
+                if (radioCounter1.checked) {
+                    counter1--;
+                    counter1Text.innerHTML = `Counter 1: ${counter1}`;
+                } else {
+                    counter2--;
+                    counter2Text.innerHTML = `Counter 2: ${counter2}`;
+                }
+            });
+        </script>
+    </div>
 </body>
 
 </html>
