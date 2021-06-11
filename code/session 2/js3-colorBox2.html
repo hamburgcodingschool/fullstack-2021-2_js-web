@@ -16,32 +16,27 @@
 </head>
 
 <body>
-    <div id="colorBox"></div>
-    <button id="changeButton">Change Color</button>
+    <div id="colorBox">0</div>
+    <button id="prevButton">Prev Color</button>
+    <button id="nextButton">Next Color</button>
 
     <script>
         // WHEN THE USER CLICKS THE BUTTON THE COLOR OF THE BOX SHOULD
         // CYCLE FROM red TO green TO blue BACK TO red
 
         const colorBox = document.getElementById("colorBox");
-        const changeButton = document.getElementById("changeButton");
+        const nextButton = document.getElementById("nextButton");
 
-        colorBox.style.backgroundColor = "red";
+        let counter = 0;
+        const colors = ["red", "green", "blue", "pink", "yellow", "gray", "tomato"];
 
-        changeButton.addEventListener("click", function () {
-
-            if (colorBox.style.backgroundColor == "red") {
-
-                colorBox.style.backgroundColor = "green";
-
-            } else if (colorBox.style.backgroundColor == "green") {
-
-                colorBox.style.backgroundColor = "blue";
-
-            } else if (colorBox.style.backgroundColor == "blue") {
-
-                colorBox.style.backgroundColor = "red";
+        nextButton.addEventListener("click", function () {
+            counter++;
+            if (counter >= colors.length) {
+                counter = 0;
             }
+            colorBox.innerHTML = counter;
+            colorBox.style.backgroundColor = colors[counter];
         });
     </script>
 </body>
