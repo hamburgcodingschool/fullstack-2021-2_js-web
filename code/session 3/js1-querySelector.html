@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="awesome-button" id="button1">A</button>
+    <button class="awesome-button">B</button>
+    <button class="awesome-button">C</button>
+    <script>
+        const button1 = document.getElementById("button1");
+        const button1_1 = document.querySelector(".awesome-button");
+
+        document.write(button1);
+        console.log(button1);
+
+        document.write(button1_1);
+        console.log(button1_1);
+
+        const buttons = document.querySelectorAll(".awesome-button");
+
+        document.write(buttons);
+        console.log(buttons);
+    </script>
+</body>
+
+</html>
