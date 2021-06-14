@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="displayText">nothing yet...</p>
+    <button class="awesome-button">A</button>
+    <button class="awesome-button">B</button>
+    <button class="awesome-button">C</button>
+    <button class="awesome-button">D</button>
+    <button class="awesome-button">E</button>
+    <button class="awesome-button">F</button>
+    <button class="awesome-button">G</button>
+    <button class="awesome-button">...</button>
+    <button class="awesome-button">Z</button>
+
+    <script>
+        const displayText = document.querySelector("#displayText");
+        const buttons = document.querySelectorAll(".awesome-button");
+
+        function clicky(event) {
+
+            console.log(event);
+            console.log(event.target.innerHTML);
+
+            displayText.innerHTML = event.target.innerHTML;
+        }
+
+        for (let i = 0; i < buttons.length; i++) {
+
+            buttons[i].addEventListener("click", clicky);
+
+        }
+
+
+        // buttons[0].addEventListener("click", function () {
+        //     displayText.innerHTML = "A";
+        // });
+        // buttons[1].addEventListener("click", function () {
+        //     displayText.innerHTML = "B";
+        // });
+        // buttons[2].addEventListener("click", function () {
+        //     displayText.innerHTML = "C";
+        // });
+        // buttons[3].addEventListener("click", function () {
+        //     displayText.innerHTML = "D";
+        // });
+        // buttons[4].addEventListener("click", function () {
+        //     displayText.innerHTML = "E";
+        // });
+        // buttons[5].addEventListener("click", function () {
+        //     displayText.innerHTML = "F";
+        // });
+    </script>
+</body>
+
+</html>

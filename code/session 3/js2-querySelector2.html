@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #fruitList li {
+            text-decoration: underline;
+            color: tomato;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,6 +26,16 @@
     <script>
         // EXERCISE
         // Print the vame of all items in the list in the console.
+
+        const fruitList = document.querySelectorAll("#fruitList>li");
+
+        // console.log(fruitList[0].innerHTML);
+
+        for (let i = 0; i < fruitList.length; i++) {
+
+            console.log(fruitList[i].innerHTML);
+
+        }
     </script>
 </body>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #buttonHolder {
+            width: 500px;
+            background-color: thistle;
+            border: solid 5px tomato;
+            padding: 10px;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="buttonAdd">More Buttons!</button>
+    <div id="buttonHolder">
+
+    </div>
+
+    <script>
+        const buttonAdd = document.querySelector("#buttonAdd");
+        const buttonHolder = document.querySelector("#buttonHolder");
+
+        buttonAdd.addEventListener("click", function () {
+
+            buttonHolder.innerHTML += `<button>NEW BUTTON</button>`;
+
+        });
+
+        // EVENT DELEGATION
+        document.body.addEventListener("click", function (event) {
+
+            if (event.target.tagName == "BUTTON") {
+                alert("button clicked!");
+            } else {
+                alert("Something else clicked!");
+            }
+
+        });
+    </script>
+</body>
+
+</html>
