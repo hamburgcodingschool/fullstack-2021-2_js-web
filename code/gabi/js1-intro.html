@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="theTitle">Title</h1>
+    <p id="theText">something...</p>
+    <button id="theButton">The button</button>
+    
+    <script>
+        // const theTitle = document.getElementById("theTitle");
+        const theTitle = document.querySelector("#theTitle");
+        const theText = document.querySelector("#theText");
+        const theButton = document.querySelector("#theButton");
+
+        let counter = 0;
+
+        theButton.addEventListener("click", function () {
+            
+            counter ++;
+
+            theTitle.style.backgroundColor = "red";
+            theTitle.style.color = "blue";
+            theTitle.innerHTML = "Some new Title";
+
+            // theText.innerHTML = "it was clicked " + counter + " time(s)";
+            theText.innerHTML = `it was clicked ${counter} time(s)`;
+
+            if (counter > 10) {
+                theTitle.style.backgroundColor = "green";
+            }
+
+
+            // SIDE NOTE FOR TEMPLATE LITERALS
+            let name = "Joe"
+            let age = 20
+            let city = "London"
+
+            let text = "Hello my name is " + name + " I am " + age + " years old and I am from " + city + ".";
+            let text2 = `Hello my name is ${name} I am ${age} years old and I am from ${city}.`;
+        });
+
+    </script>
+</body>
+</html>
