@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <input type="text" placeholder="What do you need todo?">
+    <input id="newItemInput" type="text" placeholder="What do you need todo?">
     <br>
     <button id="addListItem">Add Item to List</button>
 
@@ -26,6 +26,18 @@
         // 1 - add new Item to the OL
         // 2 - remove the parent LI when the X button is clicked
         // Only do 2, once 1 is perfect!
+
+        const newItemInput = document.querySelector("#newItemInput");
+        const addListItem = document.querySelector("#addListItem");
+        const theList = document.querySelector("#theList");
+
+        addListItem.addEventListener("click", function () {
+
+            const todoText = newItemInput.value;
+
+            theList.innerHTML += `<li>${todoText} <button>X</button></li>`;
+
+        });
     </script>
 </body>
 
