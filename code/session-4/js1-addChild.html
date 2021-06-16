@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="theTitle"><a href="#">Some link!</a></div>
+    <script>
+
+        document.write("<h2>Hello</h2>");
+
+    </script>
+    <button id="theButton">The Button!</button>
+
+    <p id="someParagraph">some text.</p>
+    <button id="addImageButton">Add an image!</button>
+    <script>
+
+        const theButton = document.querySelector("#theButton");
+        const theTitle = document.querySelector("#theTitle");
+        const someParagraph = document.querySelector("#someParagraph");
+        const addImageButton = document.querySelector("#addImageButton");
+
+        addImageButton.addEventListener("click", function() {
+            
+            // someParagraph.innerHTML += `<img src="images/1.jpg">`;
+
+            const newImageElement = document.createElement("img");
+            newImageElement.src = "images/1.jpg";
+            newImageElement.style.height = "50px";
+            someParagraph.appendChild(newImageElement);
+        });
+
+        theButton.addEventListener("click", function() {
+            ////// This would create a new document, since at this point of the event being triggered the page has finished loading
+            // document.write("Hello again!!!!!");
+
+
+
+            ////// EASY WAY - will work well in most cases
+            ////// (sometimes issues when being done many times inside a loop)
+            
+            // theTitle.innerHTML += `<a href="#">A link</a>`;
+            
+
+
+            ////// EFFICIENT WAY - will always work
+            
+            const newLinkElem = document.createElement("a");
+            newLinkElem.innerText = "A link";
+            newLinkElem.href = "#";
+            theTitle.appendChild(newLinkElem);
+        });
+
+    </script>
+</body>
+</html>

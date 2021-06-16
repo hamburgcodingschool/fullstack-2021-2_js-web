@@ -1,0 +1,21 @@
+body {
+    background-color: antiquewhite;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContainer > div {
+    margin: 5px;
+    text-align: center;
+}
+
+#mainContainer input {
+    text-align: center;
+}
+
+#calculateButton {
+    width: 50px;
+}
