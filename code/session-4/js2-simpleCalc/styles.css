@@ -3,12 +3,14 @@ body {
 }
 
 #mainContainer {
+    
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 #mainContainer > div {
-    margin: 5px;
+    
     text-align: center;
 }
 
@@ -16,6 +18,11 @@ body {
     text-align: center;
 }
 
+#mainContainer select {
+    text-align: center;
+    width: 75px;
+}
+
 #calculateButton {
-    width: 50px;
+    width: 75px;
 }

@@ -9,12 +9,20 @@
 </head>
 <body>
     <div id="mainContainer">
-        <div><input id="value1" placeholder="First operand"></div>
-        <div>+</div>
-        <div><input id="value2" placeholder="Second operand"></div>
+        <div><input id="input1" placeholder="First operand"></div>
+        <div>
+            <select id="selectOperation">
+                <option value="sum">+</option>
+                <option value="sub">-</option>
+                <option value="mult">x</option>
+                <option value="divi">/</option>
+            </select>
+        </div>
+        <div><input id="input2" placeholder="Second operand"></div>
         <div><button id="calculateButton">=</button></div>
-        <div><input id="result" value="?" readonly></div>
+        <div><input id="inputResult" value="?" readonly></div>
     </div>
     
+    <script src="calc.js"></script>
 </body>
 </html>
