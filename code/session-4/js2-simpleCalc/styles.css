@@ -26,3 +26,10 @@ body {
 #calculateButton {
     width: 75px;
 }
+
+#logContainer {
+    width: 400px;
+    padding: 5px;
+    background-color: azure;
+    border: solid 2px burlywood;
+}
