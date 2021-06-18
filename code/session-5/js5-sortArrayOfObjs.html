@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <ul id="thePeopleList">
+
+    </ul>
     <script>
+        const thePeopleList = document.querySelector("#thePeopleList");
+
         const people = [
             {
                 name: "Joe",
@@ -18,7 +23,7 @@
                 age: 34
             },
             {
-                name: "Bob",
+                name: "Zack",
                 age: 2
             },
             {
@@ -30,10 +35,41 @@
         // PRINT ALL THE INFO FROM THE `people` ARRAY
         // SORT FIRST USING THE ARRAY `sort` FUNCTION
 
+        // 0 - Print all the names in the array.
+        // 0.1 - Using a `for` loop
+        // 0.2 - Using the `forEach` array function
         // 1 - Sort by age ASCENDING
         // 2 - Sort by name DESCENDING
 
+        //// 0.1
+        // for (let i = 0; i < people.length; i++) {
 
+        //     // thePeopleList.innerHTML += `<li>${people[i].name}</li>`;
+        //    document.write(people[i].name + " ");
+        // }
+
+        //// 0.2
+        function addPeopleToList() {
+            people.forEach(function(person) {
+                thePeopleList.innerHTML += `<li>${person.name}, ${person.age}</li>`;
+                // document.write(person.name + " ");
+            });
+        }
+
+        
+        //// 1
+        // people.sort(function(elem1, elem2) {
+        //     return elem1.age > elem2.age;
+        // });
+        
+        //// 2
+        people.sort(function(elem1, elem2) {
+            return elem1.name < elem2.name;
+        });
+        
+        addPeopleToList();
+        
+        
     </script>
 </body>
 </html>
