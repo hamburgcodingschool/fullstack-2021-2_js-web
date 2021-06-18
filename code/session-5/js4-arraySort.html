@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // const names = [
+        //     "Helder",
+        //     "Siggi",
+        //     "Gabi",
+        //     "Toti",
+        //     "Flavia",
+        //     "Jannek"
+        // ]
+
+        // names.sort();
+
+        // document.write(names);
+
+
+        const numbers = [
+            3,2,25,345,1000000,4,50,2,1,22,23,5,6,9,0,2
+        ]
+
+        numbers.sort(function(value1, value2) {
+            // console.log(value1);
+            // console.log(value2);
+            // console.log("-----------------");
+            // console.log(numbers);
+            // console.log("-----------------");
+            // console.log("-----------------");
+
+            return value1 > value2;
+        });
+
+        // numbers.sort((value1, value2) => value1 > value2);
+
+        document.write(numbers);
+    </script>
+</body>
+</html>
