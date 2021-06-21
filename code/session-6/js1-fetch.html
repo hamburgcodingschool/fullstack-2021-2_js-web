@@ -35,13 +35,28 @@
         })
         console.log("FINISHING! (not really)");
 
+
         function fillInList(elems) {
             elems.forEach(function(elem) {
-                somePeople.innerHTML += `<li>${elem.name}</li>`;
+                somePeople.innerHTML += `
+                <li>${elem.name} &lt;${elem.email}&gt;
+                <br>
+                <br>
+                ${elem.address.street}, ${elem.address.suite}
+                <br>
+                ${elem.address.city}, ${elem.address.zipcode}
+                <br>
+                <br>
+                <a href="http://${elem.website}">${elem.website}</a>
+                <br>
+                <br>
+                </li>`;
             });
         }
 
         // Add the email and address to the li as well (seperated by comma)
     </script>
+
+    
 </body>
 </html>
