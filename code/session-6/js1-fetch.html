@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="someDiv"></div>
+    <ul id="somePeople">
+
+    </ul>
+
+
+    <script>
+        const someDiv = document.querySelector("#someDiv");
+        const somePeople = document.querySelector("#somePeople");
+
+        console.log("STARTING!");
+
+        // ASYNCHRONOUS PROCESS
+        fetch("https://jsonplaceholder.typicode.com/users").then(function(response) {
+
+            console.log("RESPONSE IS DONE! I WAS SUPER FAST!!!!!");
+            
+            response.json().then(function(result) {
+                console.log("FINALLY I GET ACCESS TO THE DATA!!!!!");
+
+                // console.log(result);
+                // someDiv.innerHTML = result[2].address.street;
+                fillInList(result);
+            })
+
+        })
+        console.log("FINISHING! (not really)");
+
+        function fillInList(elems) {
+            elems.forEach(function(elem) {
+                somePeople.innerHTML += `<li>${elem.name}</li>`;
+            });
+        }
+
+        // Add the email and address to the li as well (seperated by comma)
+    </script>
+</body>
+</html>
