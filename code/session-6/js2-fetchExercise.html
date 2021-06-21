@@ -5,12 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #theDiv {
+            width: 300px;
+            min-height: 50px;
+            margin: 10px auto 5px;
+
+            background-color: aquamarine;
+            border: solid 5px chocolate;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #buttonHolder {
+            text-align: center;
+        }
+
+        #myFactsHolder {
+            width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #logHolder {
+            width: 600px;
+            margin: 50px auto 0;
+        }
+
+
+        #theLog {
+            
+            min-height: 50px;
+            margin: 10px auto 5px;
+
+            background-color: lightgray;
+            border: solid 5px darkgray;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        #theLog li {
+            margin: 15px;
+        }
+    </style>
 </head>
 <body>
-    <div></div>
-    <button>New Cat Fact!</button>
+    <div id="theDiv"></div>
+    <div id="buttonHolder">
+        <button id="theButton">New Cat Fact from REST API!</button>
+    </div>
+    <div id="myFactsHolder">
+        <input id="myCatFactInput" placeholder="My own cat fact"><button id="myCatFactButton">Add My Cat</button>
+    </div>
+    <div id="logHolder">
+        the Log:
+        <div id="theLog">
+            <ul></ul>
+        </div>
+    </div>
 
     <script>
+        
+        const theDiv = document.querySelector("#theDiv");
+        const theButton = document.querySelector("#theButton");
+        const theLogUL = document.querySelector("#theLog > ul");
+        
+        const myCatFactInput = document.querySelector("#myCatFactInput");
+        const myCatFactButton = document.querySelector("#myCatFactButton");
+
+        function displayCatFact(catFact) {
+            theDiv.innerHTML = catFact;
+        }
+
+        function addCatFactToLog(catFact) {
+            theLogUL.innerHTML = `<li>${catFact} <button>❌</button></li>` + theLogUL.innerHTML;
+        }
+        
+        function fetchCatFact() {
+            fetch("https://catfact.ninja/fact").then(function(response) {
+                response.json().then(function(result) {
+                    displayCatFact(result.fact);
+                    addCatFactToLog(result.fact);
+                });
+            });
+        }
+
+        theButton.addEventListener("click", function() {
+
+            fetchCatFact();            
+
+        });
+
+        theLogUL.addEventListener("click", function(event) {
+            
+            if (event.target.tagName !== "BUTTON") {
+                return;
+            }
+
+            event.target.parentNode.remove();
+        });
+
+        myCatFactButton.addEventListener("click", function() {
+            if (myCatFactInput.value.length == 0) {
+                alert("Write something...");
+                return;
+            }
+            displayCatFact(myCatFactInput.value);
+            addCatFactToLog(myCatFactInput.value);
+        });
+
 
         // https://catfact.ninja/
         // Everytime the user clicks the button
