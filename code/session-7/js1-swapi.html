@@ -61,8 +61,62 @@
         // 3 - when clicking the film detail button
         //      show the crawler on the left and show the film's character names
 
+
+        const filmsBoxList = document.querySelector("#filmsBox > ul");
+        const openingCrawlBox = document.querySelector("#openingCrawlBox");
+        
+
+
+        let films = [];
+
         // list of films shows automatically, so we fetch right away...
-        fetch.
+        fetch("https://swapi.dev/api/films").then(function (response) {
+            response.json().then(function(result) {
+                
+                films = result.results;
+                console.log(films);
+
+                showFilms();
+            });
+        });
+
+        function showFilms() {
+            // films is an array of objects
+            films.forEach(function(film, index) {
+                filmsBoxList.innerHTML += `<li><button data-film-index="${index}">${film.title}</button></li>`;
+            });
+        }
+
+        filmsBoxList.addEventListener("click", function (event) {
+            if (event.target.tagName !== "BUTTON") {
+                return;
+            }
+
+            // console.log(event.target);
+            // console.log(event.target.dataset.filmIndex);
+            
+            // put the array index in an `i` variable to make it easier to read;
+            const i = event.target.dataset.filmIndex;
+            
+            // console.log(films[i]);
+            showFilmDetails(films[i]);
+            
+
+        });
+
+        function showFilmDetails(film) {
+            openingCrawlBox.innerHTML = `
+                <h2>Episode ${film.episode_id}</h2>
+                <h3>${film.title}</h3>
+                <p>${film.opening_crawl}</p>
+            `;
+        }
     </script>
+
+
+    <!-- <p id="p1" class="paragraphs silly-colors" data-film-id="0">Hello I am a paragrapg</p>
+    <p id="p1" class="paragraphs silly-colors" data-film-id="1">Hello I am a paragrapg</p>
+    <p id="p1" class="paragraphs silly-colors" data-film-id="2">Hello I am a paragrapg</p> -->
+
 </body>
 </html>
