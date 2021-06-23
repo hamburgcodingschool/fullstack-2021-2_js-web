@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yellowButtons {
+            background-color: yellow;
+            padding: 10px;
+            border: 4px solid yellowgreen;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
+
+        .yellowButtons:active {
+            opacity: 0.75;
+        }
+    </style>
+</head>
+<body>
+    <button
+        id="button1"
+        class="yellowButtons"
+        data-custom-Example="Something will show up"
+        data-something-Else="Something else will show up"
+    >Hello</button>
+
+
+    <script>
+        const button1 = document.querySelector("#button1");
+        console.log(button1);
+
+        alert(button1.dataset.customExample);
+        alert(button1.dataset.somethingElse);
+
+
+    </script>
+</body>
+</html>

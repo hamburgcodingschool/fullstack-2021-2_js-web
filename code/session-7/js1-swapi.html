@@ -25,9 +25,31 @@
             min-height: 360px;
             padding: 20px;
         }
+
+        #loadingBox {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #charactersProgress {
+            width: 100%;
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <div id="loadingBox">
+
+        <progress></progress>
+
+    </div>
     <div id="mainWrapper">
         <div id="filmsBox">
             <ul>
@@ -47,6 +69,7 @@
                 <p>blah blah bnlah blah blah</p> -->
             </div>
             <div id="charactersBox">
+                <progress id="charactersProgress" value="0"></progress>
                 <ul>
                     <!-- <li>Obi Wan</li>
                     <li>Luke...</li> -->
@@ -65,6 +88,9 @@
         const openingCrawlBox = document.querySelector("#openingCrawlBox");
         const charactersBoxList = document.querySelector("#charactersBox > ul");
 
+        const loadingBox = document.querySelector("#loadingBox");
+        const charactersProgress = document.querySelector("#charactersProgress");
+
         let films = [];
 
 
@@ -77,21 +103,36 @@
 
 
         function showFilmDetails(film) {
+
             openingCrawlBox.innerHTML = `
                 <h2>Episode ${film.episode_id}</h2>
                 <h3>${film.title}</h3>
                 <p>${film.opening_crawl}</p>
             `;
 
-            charactersBoxList.innerHTML = '';            
+            charactersProgress.style.display = "block";
+            charactersBoxList.style.display = "none";
+            charactersProgress.value = 0;
+            charactersProgress.max = film.characters.length;
+
+            charactersBoxList.innerHTML = '';          
             film.characters.forEach(function (characterURL) {
 
                 fetch(characterURL).then(function(response) {
                     response.json().then(function(result) {
                         charactersBoxList.innerHTML += `<li>${result.name}</li>`;
+                        updateProgress();
                     });
                 });
             });
+        }
+
+        function updateProgress() {
+            charactersProgress.value += 1;
+            if (charactersProgress.value == charactersProgress.max) {
+                charactersProgress.style.display = "none";
+                charactersBoxList.style.display = "block";
+            }
         }
 
 
@@ -116,7 +157,10 @@
         // list of films shows automatically, so we fetch right away...
         fetch("https://swapi.dev/api/films").then(function (response) {
             response.json().then(function(result) {
-                
+
+                // loadingBox.style.display = "none";
+                loadingBox.remove();
+
                 films = result.results;
                 console.log(films);
 
