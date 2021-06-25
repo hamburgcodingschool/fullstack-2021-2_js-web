@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="showData">
+
+    </div>
+    <button id="load">Load!</button>
+
+    <script>
+
+        const showData = document.querySelector("#showData");
+        const load = document.querySelector("#load");
+
+        load.addEventListener("click", function() {
+
+            const name = localStorage.getItem("name");
+            const age = localStorage.getItem("age");
+            
+            const content = `<p>Name: ${name}<br>Age: ${age}</p>`;
+            
+            showData.innerHTML = content;
+        });
+
+        // const name = localStorage.getItem("name");
+
+        // console.log(name);
+
+
+    </script>
+
+
+</body>
+</html>

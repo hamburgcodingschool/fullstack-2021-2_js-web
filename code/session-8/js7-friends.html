@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>
+        Name:
+        <input type="text" id="inputName" placeholder="name">
+    </label>
+    <br>
+    <label>
+        City:
+        <input type="text" id="inputCity" placeholder="city">
+    </label>
+    <br>
+    <button id="buttonAddFriend">Add New Friend!</button>
+    
+    <div>
+        Friend List:
+        <ul id="friendsList">
+
+        </ul>
+    </div>
+    <script>
+        const inputName = document.querySelector("#inputName");
+        const inputCity = document.querySelector("#inputCity");
+        const buttonAddFriend = document.querySelector("#buttonAddFriend");
+        const friendsList = document.querySelector("#friendsList");
+
+        let friends = [];
+
+        buttonAddFriend.addEventListener("click", function() {
+
+            const friend = {
+                name: inputName.value,
+                city: inputCity.value
+            }
+
+            friends.push(friend);
+            showFriends();
+            saveFriends();
+        });
+
+        function saveFriends() {
+            const friendsString = JSON.stringify(friends);
+            localStorage.setItem("friends", friendsString);
+        }
+
+        function loadFriends() {
+            const friendsString = localStorage.getItem("friends");
+            friends = JSON.parse(friendsString);
+        }
+
+        function showFriends() {
+            friendsList.innerHTML = "";
+            friends.forEach(function(friend) {
+                friendsList.innerHTML += `<li>${friend.name}, ${friend.city}</li>`;
+            });
+        }
+
+        
+        loadFriends();
+        showFriends();
+
+    </script>
+</body>
+</html>

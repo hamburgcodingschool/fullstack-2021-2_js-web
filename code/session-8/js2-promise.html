@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // async / await
+
+        const word = "pokemon";
+        const languageCode = "en_US";
+
+        const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageCode}/${word}`;
+
+        const myFetchPromise = fetch(url);
+
+        myFetchPromise.then(function(response) {
+
+            console.log("SUCCESS!!");
+            console.log(response);
+
+        }).catch(function(error) {
+
+            console.log("ERROR!!");
+            console.log(error);
+            
+        })
+
+        console.log(theFetchReturn);
+
+
+    </script>
+</body>
+</html>
