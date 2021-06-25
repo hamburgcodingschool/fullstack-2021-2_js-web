@@ -52,7 +52,11 @@
 
         function loadFriends() {
             const friendsString = localStorage.getItem("friends");
-            friends = JSON.parse(friendsString);
+            if (friendsString) {
+                friends = JSON.parse(friendsString);
+            } else { // in case the localstorage is empty
+                friends = [];
+            }
         }
 
         function showFriends() {
