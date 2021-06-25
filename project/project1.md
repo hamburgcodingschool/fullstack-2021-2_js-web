@@ -44,7 +44,7 @@ You will be storing the data in `localstorage` and optionally consuming content 
 - Need a new challenge? Let Helder know!
 
 ## Submission
-Submission deadline is on the `9th of June`
+Submission deadline is on the `9th of July`
 Send us an email with the following information:
 - Project:
   - Link to your project's Github repository or Code Sandbox
