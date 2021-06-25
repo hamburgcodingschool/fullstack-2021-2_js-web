@@ -1,4 +1,3 @@
-# NIT Project Assignment
 ## 1 - Travel Blog
 
 ### Objective
