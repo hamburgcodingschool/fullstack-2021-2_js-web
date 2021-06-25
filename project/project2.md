@@ -1,4 +1,3 @@
-# NIT Project Assignment
 ## 2 - Pokédex
 
 ### Objective
@@ -45,7 +44,7 @@ User should be able to select wether to see the front or back sprite, default or
 - Need a new challenge? Let Helder know!
 
 ## Submission
-Submission deadline is on the `9th of June`
+Submission deadline is on the `9th of July`
 Send us an email with the following information:
 - Project:
   - Link to your project's Github repository or Code Sandbox
