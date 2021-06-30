@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="pokeDetails">
+        details will show up here when you click the button...
+        
+    </div>
+
+    <ul id="pokeList">
+
+    </ul>
+
+    
+
+    <script>
+
+        // const  someUrl = "https://pokeapi.co/api/v2/pokemon/134/";
+
+        // const someArray = someUrl.split("/");
+
+        // someArray.forEach(function(elem) {
+        //     document.write(elem + "<br>");
+        // });
+
+        // const secondLast = someArray.length - 2;
+
+        // const number =  someArray[secondLast]
+        
+        // alert(number);
+
+        const pokeList = document.querySelector("#pokeList");
+        const pokeDetails = document.querySelector("#pokeDetails");
+        
+
+        fetch("https://pokeapi.co/api/v2/pokemon/?limit=151").then(function(response) {
+            response.json().then(function(result) {
+
+                result.results.forEach(function(pokemon, index) {
+
+                    const someArray = pokemon.url.split("/");
+                    const secondLast = someArray.length - 2;
+                    const number =  someArray[secondLast];
+
+                    pokeList.innerHTML += `<li><img height="50" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png">${number} --- ${pokemon.name} <button data-url="${pokemon.url}">Details</button></li>`;
+
+                });
+
+            });
+        });
+
+        // event delegation
+        pokeList.addEventListener("click", function(event) {
+            if (event.target.tagName !== "BUTTON") {
+                return;
+            }
+            
+            const url = event.target.dataset.url;
+
+            pokeDetails.innerHTML = `Loading...`;
+
+            fetch(url).then(function(response) {
+                response.json().then(function(result) {
+                    pokeDetails.innerHTML = `${result.name} is this tall: ${result.height}`;
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
